@@ -1,0 +1,71 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 85%);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+button {
+    width: 75px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 2s, 0.3s;
+    font-weight: bold;
+    border: none;
+}
+
+textarea {
+    width: 150px;
+    height: 75px;
+    border-radius: 10px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.crossed-out {
+    text-decoration: line-through; /* Adds a strikethrough effect */
+    color: gray; /* Makes the text gray */
+    opacity: 0.6; /* Makes it slightly faded */
+}
+
+.note-card {
+    position: relative; /* Allows absolute positioning inside */
+    background: #fffa90;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 175px;
+    min-height: 100px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-card p {
+    margin-bottom: 10px; /* Adds space between the note text and buttons */
+}
+
+.trash-btn {
+    position: absolute; /* Moves the button inside the .note-card */
+    bottom: 5px; /* Adjusts distance from the top */
+    left: 5px; /* Adjusts distance from the left */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(255, 118, 118);
+}
+
+.trash-btn:hover {
+    transform: scale(1.1); /* Makes the trash can bigger on hover */
+    color: rgb(255, 9, 9); /* Optional: Make it darker when hovering */
+}

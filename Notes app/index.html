@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-Taking App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="notesApp">
+        <div id="input">
+            <textarea id="note" placeholder="Write your note here..."></textarea>
+        </div>
+        
+        <div id="buttons">
+             
+            <button id="makeNote" onclick="makeNewNote()">Make Note</button> 
+            <!--
+            <button id="trashCan" onclick="crossOutNote(event)"><i class="fa-regular fa-trash-can"></i></button>
+            <button id="checkMark" onclick="markAsDone()"><i class="fa-regular fa-square-check"></i></button>  
+            --> 
+        </div>
+
+        <h2>🔽 Notes Saved 🔽</h2> 
+        <div id="notesList">
+            <!-- notes will be showed here! -->
+        </div>
+    </div>
+    <script src="base.js"></script>
+</body>
+</html>
