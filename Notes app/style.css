@@ -1,29 +1,47 @@
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center everything horizontally */
     background-color: hsl(0, 0%, 85%);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-}
-
-button {
-    width: 75px;
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 2s, 0.3s;
-    font-weight: bold;
-    border: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 textarea {
-    width: 150px;
-    height: 75px;
+    width: 250px;
+    height: 100px;
     border-radius: 10px;
     border: none;
     font-family:Arial, Helvetica, sans-serif;
+    background-color: darkgrey;
+}
+
+#addNoteBtn {
+    margin-top: 20px; /* Add space from the top */
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #fffa90;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+#notesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    max-width: 90vw;
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 h2 {
@@ -37,35 +55,155 @@ h2 {
 }
 
 .note-card {
-    position: relative; /* Allows absolute positioning inside */
     background: #fffa90;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 175px;
-    min-height: 100px;
+    width: 175px; /* Fixed width */
+    min-height: 100px; /* Minimum height */
+    max-height: 200px; /* Prevents notes from getting too tall */
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    margin: 0;
+    overflow-y: auto; /* Allows scrolling if needed */
 }
 
 .note-card p {
-    margin-bottom: 10px; /* Adds space between the note text and buttons */
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ensures long words break */
+    overflow-wrap: break-word; /* Same as above, but for newer browsers */
+    white-space: normal; /* Ensures text wraps instead of staying in one line */
+}
+
+#inputContainer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    margin-top: 20px; /* Space from top */
 }
 
 .trash-btn {
-    position: absolute; /* Moves the button inside the .note-card */
-    bottom: 5px; /* Adjusts distance from the top */
-    left: 5px; /* Adjusts distance from the left */
+    border: none;
+    position: absolute;
+    bottom: 20px; /* Kept as you wanted */
+    right: 163.6px; /* Kept as you wanted */
+    background-color: rgb(255, 118, 118);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* When clicked, change the icon color so it stays visible */
+.trash-btn:active {
+    color: black; /* Change icon color */
+}
+
+.trash-btn i, .trash-btn svg {
+    color: white; /* Default icon color */
+    transition: color 0.2s ease;
+}
+
+.trash-btn:active i, .trash-btn:active svg {
+    color: rgb(255, 42, 0);
+}
+
+.blue-btn {
+    bottom: 5px; /* Positions at bottom */
+    right: 5px; /* Moves it to the right */
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: rgb(255, 118, 118);
+    background-color: rgb(118, 127, 255);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
 }
 
-.trash-btn:hover {
-    transform: scale(1.1); /* Makes the trash can bigger on hover */
-    color: rgb(255, 9, 9); /* Optional: Make it darker when hovering */
+.blue-note {
+    background: rgb(118, 127, 255);
+}
+
+.red-btn {
+    bottom: 5px; /* Positions at bottom */
+    right: 5px; /* Moves it to the right */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(255, 118, 118);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.red-note {
+    background: rgb(255, 118, 118);
+}
+
+.green-btn {
+    bottom: 5px; /* Positions at bottom */
+    right: 5px; /* Moves it to the right */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(125, 255, 118);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.green-note {
+    background: rgb(125, 255, 118);
+}
+
+.note-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 5px; /* Space between buttons */
+    margin-top: 10px; /* Space above buttons */
+}
+
+.blue-btn, .red-btn, .green-btn {
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default: No visible border */
+    transition: border 0.2s ease; /* Smooth transition */
+}
+
+.blue-btn {
+    background-color: rgb(118, 127, 255);
+    border-color: rgb(80, 90, 200); /* Darker blue border */
+}
+
+.red-btn {
+    background-color: rgb(255, 118, 118);
+    border-color: rgb(200, 80, 80); /* Darker red border */
+}
+
+.green-btn {
+    background-color: rgb(125, 255, 118);
+    border-color: rgb(80, 200, 80); /* Darker green border */
+}
+
+/* Add an outline when clicked */
+.blue-btn:active, .red-btn:active, .green-btn:active {
+    border-color: black; /* Black border on click */
+    outline: none;
 }
