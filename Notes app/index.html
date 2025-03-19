@@ -10,21 +10,19 @@
 <body>
     <div id="notesApp">
         <div id="input">
-            <textarea id="note" placeholder="Write your note here..."></textarea>
         </div>
         
-        <div id="buttons">
-             
-            <button id="makeNote" onclick="makeNewNote()">Make Note</button> 
-            <!--
-            <button id="trashCan" onclick="crossOutNote(event)"><i class="fa-regular fa-trash-can"></i></button>
-            <button id="checkMark" onclick="markAsDone()"><i class="fa-regular fa-square-check"></i></button>  
-            --> 
+        <div id="inputContainer">
+            <textarea id="note" placeholder="Write your note here..."></textarea>
+            <button id="addNoteBtn">Add Note</button>   
         </div>
 
         <h2>🔽 Notes Saved 🔽</h2> 
+        <div id="note-buttons">
+            <!-- note buttons will be showed here! -->
+        </div>
         <div id="notesList">
-            <!-- notes will be showed here! -->
+            <!-- This is for the actual notes to show-->
         </div>
     </div>
     <script src="base.js"></script>
